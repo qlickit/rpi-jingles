@@ -1,4 +1,3 @@
-
 from tkinter import Tk, Label, Button, E, W
 import os, time, subprocess
 time1 = ''
