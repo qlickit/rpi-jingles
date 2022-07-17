@@ -29,13 +29,13 @@ class cartGUI:
     def __init__(self, master):
 
         self.master = master
-        master.title("PiCartWall")
+        master.title("JingleBox")
 
         def play(track):
             fullPath = os.path.normpath("/home/pi/Music/"+dirList[track].replace(' ','\ '))
             os.system("aplay " + fullPath)
 
-        self.label = Label(master, text="PiCartWall by @blogmywiki", font=('Lato Heavy',25), fg = 'blue')
+        self.label = Label(master, text="Jinglebox", font=('Lato Heavy',25), fg = 'blue')
         self.label.grid(columnspan=7, pady=10)
 
         self.button1 = Button(master, text="1", font=('Lato Heavy',55), fg = 'blue', height=1, width=2, command=lambda: play(0))
@@ -121,32 +121,22 @@ class cartGUI:
 
         self.label14 = Label(master, text=audioList[13][1])
         self.label14.grid(row=4, column=6)
-
-        self.ip_button = Button(master, text="IP addr", command=self.ipaddr)
-        self.ip_button.grid(row=5, pady=10)
     
-        self.stop_button = Button(master, text="shut down", command=self.shutdown)
+        self.stop_button = Button(master, text="Koude herstart", command=self.shutdown)
         self.stop_button.grid(row=5, column=2)
 
-        self.close_button = Button(master, text="close app", command=self.close)
+        self.close_button = Button(master, text="Warme herstart", command=self.close)
         self.close_button.grid(row=5, column=4)
-
-        self.foo_button = Button(master, text="--", command=self.foo)
-        self.foo_button.grid(row=5, column=6)
 
     def shutdown(self):
         print("shutting down system")
         self.label.config(text='shutting down system')
-        os.system("sudo shutdown now")
+        os.system("sudo reboot now")
 
     def close(self):
         root.destroy()
-
-    def ipaddr(self):
-        self.label.config(text=IP)
-
-    def foo(self):
-        os.system("")
+        root = Tk()
+        root.mainloop()
 
 
 root = Tk()
